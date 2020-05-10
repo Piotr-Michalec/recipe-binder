@@ -1,18 +1,20 @@
 import React from 'react';
-import MyForm from './components/test';
-import AddItem from './components/AddItem';
-import DisplayAll from './components/DisplayAll';
+//import MyForm from './components/test';
+import MainComp from './components/MainComp';
+
+
 
 import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <h1>aa</h1>
+    <main className = 'container-fluid'>
+      <div className = 'container bg-danger'>
+        <MainComp/>
+    
+      </div>
+    </main>
    
-      <AddItem/>
-      <DisplayAll/>
-    </div>
   );
 }
 
