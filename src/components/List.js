@@ -2,6 +2,7 @@ import React, {useEffect,useState} from 'react';
 
 import AddNew from './AddNew';
 import Item from './Item';
+import styles from "./../componentCss/list.css";
 
 const List = () =>{
 
@@ -33,13 +34,14 @@ const List = () =>{
    
 
     return(
-        <div>
+        <ul className = {styles.ul}>
             {items.map((item,index)=>(<Item 
             title = {item.title}
             link = {item.link}
             date = {item.date}
             id= {item._id} />))}
-        </div>
+           
+        </ul>
     );
 };
 

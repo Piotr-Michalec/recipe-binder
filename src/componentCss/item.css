@@ -1,0 +1,33 @@
+li {
+    padding: 3%; 
+}
+
+#title {grid-area: title;}
+#link {grid-area: link;}
+#date {grid-area: date;}
+#deleteButton {grid-area: deleteButton;}
+
+
+.gridContainer {
+    padding: 2px;
+    border: 2px solid green;
+    display: grid;
+    grid-template-areas:
+    'title title title title '
+    ' link link link link'
+    'date date deleteButton deleteButton '
+    ;
+   
+
+}
+
+.gridContainer>div{
+    margin:3px;
+    background-color: greenyellow;
+}
+
+
+
+
+
+

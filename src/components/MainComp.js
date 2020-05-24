@@ -5,10 +5,10 @@ import List from './List';
 const MainComp = () =>{
     return(
         <div>
-          <div className = "">
-            <AddNew className = "bg-dark"/>
+          <div id = "add-new">
+            <AddNew className = " "/>
           </div>
-          <div className = "">
+          <div id = "listDiv">
             <List/>
           </div>
         </div>

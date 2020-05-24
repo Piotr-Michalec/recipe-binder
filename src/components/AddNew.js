@@ -1,4 +1,5 @@
 import React from "react";
+import styles from "./../componentCss/addNew.css"
 
 class AddNew extends React.Component {
   constructor(props) {
