@@ -11,15 +11,12 @@ function App() {
   return (
     <main>
        <div id="main-view"> 
-        <header>
+        <div>
           <AddNew />
-        </header>
-        
+        </div>
             <List/>
-        
         </div>
     </main>
-   
   );
 }
 

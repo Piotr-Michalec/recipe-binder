@@ -8,10 +8,13 @@ const id = props.id;
 let url = props.link;
 
 const deleteEntry = () =>{
-    console.log('to id usun ',id)
+   // console.log('to id usun ',id)
     fetch(`${api}/${id}`,
    { method: 'DELETE'
 }).then(res=>res.json());
+//here props.call api from list component
+console.log('usunieto')
+props.reload()
 }
 
 const openLink = () =>{
@@ -28,13 +31,11 @@ const openLink = () =>{
                 <div id = 'title' onClick = {openLink}><p>{props.title}</p></div>
                 <div id = 'link' onClick = {openLink}><p>{props.link}</p></div>
                 <div id = 'date' onClick = {openLink}><p>{props.date}</p></div>
-                <div id = 'deleteButton'><button id="delete-button"  onClick = {deleteEntry}>delete</button></div>
+                <div id = 'deleteButton'  onClick = {deleteEntry}><p>Delete</p></div>
             </div>
-           
             <hr style = {{
                     color: 'black'
                 }}/>
-          
         </li>
     );
 };

@@ -1,5 +1,22 @@
+
+@font-face{
+    font-family: 'Lato';
+    src: local('Lato'),url(../fonts/Lato/Lato-Regular.ttf) format('woff');
+  }
+  
+
 li {
     padding: 3%; 
+  
+    font-size: large;
+    text-indent: 7px;
+    
+}
+
+div{
+    border-radius: 10px;
+    font-family: 'Lato';
+    
 }
 
 #title {grid-area: title;}
@@ -9,8 +26,8 @@ li {
 
 
 .gridContainer {
-    padding: 2px;
-    border: 2px solid green;
+    padding: 1px;
+   
     display: grid;
     grid-template-areas:
     'title title title title '
@@ -20,14 +37,39 @@ li {
    
 
 }
-
-.gridContainer>div{
-    margin:3px;
-    background-color: greenyellow;
+div p {
+    padding: 2px;
 }
 
+.gridContainer>div{
+    margin:1px;
+    background-color:rgba(247, 220, 192, 0.6);
+    box-sizing: border-box;
+    cursor: pointer;
+}
 
+.gridContainer>div:hover{
+    margin:0;
+    background-color:rgba(247, 220, 192, 0.8);
+    border: 1px solid green;
+    box-sizing: border-box;
+   
+}
 
+#title{
+    text-align: center;
+    font-weight: bold
+    
+}
+
+#deleteButton {
+    text-align: center;
+  
+}
+
+#deleteButton:hover{
+    background-color: rgba(217, 76, 76, 0.5);
+}
 
 
 

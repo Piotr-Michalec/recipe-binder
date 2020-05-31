@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./../componentCss/addNew.css"
+import  "./../componentCss/addNew.css"
 
 class AddNew extends React.Component {
   constructor(props) {
@@ -28,8 +28,8 @@ class AddNew extends React.Component {
 
   validateUrl = () => {
     let url = this.state.link;
-    console.log("yrl", url);
-    console.log("val");
+    //console.log("yrl", url);
+    //console.log("val");
     let valid = false;
     let regexp = /^(?:(?:https?|ftp):\/\/)?(?:(?!(?:10|127)(?:\.\d{1,3}){3})(?!(?:169\.254|192\.168)(?:\.\d{1,3}){2})(?!172\.(?:1[6-9]|2\d|3[0-1])(?:\.\d{1,3}){2})(?:[1-9]\d?|1\d\d|2[01]\d|22[0-3])(?:\.(?:1?\d{1,2}|2[0-4]\d|25[0-5])){2}(?:\.(?:[1-9]\d?|1\d\d|2[0-4]\d|25[0-4]))|(?:(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)(?:\.(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)*(?:\.(?:[a-z\u00a1-\uffff]{2,})))(?::\d{2,5})?(?:\/\S*)?$/;
     if (regexp.test(url)) {
@@ -39,7 +39,7 @@ class AddNew extends React.Component {
   };
 
   postIt = () => {
-    console.log("state", this.state);
+    //console.log("state", this.state);
 
     // send userInput to server
     fetch("http://localhost:8080/posts", {
@@ -60,14 +60,16 @@ class AddNew extends React.Component {
 
   render() {
     return (
-      <form onSubmit={this.submitHandler}>
-        <p>title</p>
-        <input type="text" name="title" onChange={this.changeHandler} />
-        <br />
-        <p>link</p>
-        <input type="text" name="link" onChange={this.changeHandler} />
-        <input type="submit" />
-      </form>
+      <div className = 'addNewContainer'>
+        <form onSubmit={this.submitHandler}>
+          
+          <input className = 'titleInput' type="text" name="title" placeholder = 'Title' onChange={this.changeHandler} />
+          <br />
+          
+          <input className='linkInput' type="text" name="link" placeholder = 'Paste link here' onChange={this.changeHandler} />
+          <input className ='submit' type="submit" value="Add New Recipe"/>
+        </form>
+      </div>
     );
   }
 }

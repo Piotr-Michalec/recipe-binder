@@ -30,16 +30,19 @@ const List = () =>{
 
   
        
-     items.forEach((item)=>{console.log(item._id)})
+    // items.forEach((item)=>{console.log(item._id)})
    
 
     return(
         <ul className = {styles.ul}>
-            {items.map((item,index)=>(<Item 
+            <button onClick={callAPI}>bbb</button>
+            {items.slice(0).reverse().map((item,index)=>(<Item 
+            reload = {callAPI}
             title = {item.title}
             link = {item.link}
             date = {item.date}
-            id= {item._id} />))}
+            id= {item._id} />
+            ))}
            
         </ul>
     );
