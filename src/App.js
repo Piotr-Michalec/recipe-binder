@@ -8,13 +8,17 @@ import AddNew from './components/AddNew'
 import './App.css';
 
 function App() {
+  const listReloadHandler = () =>{
+console.log('reload');
+
+  }
   return (
     <main>
        <div id="main-view"> 
         <div>
-          <AddNew />
+          <AddNew reload = {listReloadHandler}/>
         </div>
-            <List/>
+            <List reload = {listReloadHandler}/>
         </div>
     </main>
   );

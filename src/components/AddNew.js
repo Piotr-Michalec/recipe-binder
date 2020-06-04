@@ -38,7 +38,7 @@ class AddNew extends React.Component {
     return valid;
   };
 
-  postIt = () => {
+  postIt = props=> {
     //console.log("state", this.state);
 
     // send userInput to server
@@ -55,7 +55,10 @@ class AddNew extends React.Component {
       .then((res) => {
         return res.json();
       })
-      .then((data) => console.log("post req: ", data));
+      .then((data) =>  console.log("post req: ", data)
+      )
+     .then(()=>this.props.reload())
+      
   };
 
   render() {

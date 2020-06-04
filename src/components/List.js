@@ -21,6 +21,7 @@ const List = () =>{
     }
 
     const callAPI= () =>{
+        console.log('api')
         fetch(api)
             .then(res => res.text())
             .then(res => createItems(res))         
