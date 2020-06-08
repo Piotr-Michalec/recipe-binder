@@ -1,5 +1,6 @@
 import React from "react";
 import  "./../componentCss/addNew.css"
+import Popup from './../components/Popup';
 
 class AddNew extends React.Component {
   constructor(props) {
@@ -7,17 +8,32 @@ class AddNew extends React.Component {
     this.state = {
       title: "",
       link: "",
+      popupVisible: false,
+      popupText: "test"
+
     };
+ 
   }
+
+
+ openPopup = (props) =>{
+  this.setState({popupText:props},()=>{console.log("callback",this.state.popupText)})
+   this.setState({popupVisible: true});
+    console.log('popup state',this.state.popupText);
+    console.log("open",props)
+   
+}
+
+ closePopup = () =>{
+   this.setState({popupVisible: false});
+   this.setState({popupText: ""})
+ }
+
   submitHandler = (event) => {
+    const text = "This not a valid link"
     event.preventDefault();
-    if (this.validateUrl()) {
-      console.log("sub");
-      this.postIt();
-      console.log("validation passed");
-    } else {
-      console.log("validation failed");
-    }
+    this.validateTitle();
+   ( this.validateUrl()? this.postIt(): this.openPopup(text))
   };
 
   changeHandler = (event) => {
@@ -25,6 +41,7 @@ class AddNew extends React.Component {
     let val = event.target.value;
     this.setState({ [nam]: val });
   };
+
 
   validateUrl = () => {
     let url = this.state.link;
@@ -37,6 +54,12 @@ class AddNew extends React.Component {
     }
     return valid;
   };
+
+  validateTitle = () =>{
+    let title = this.state.title;
+    const text = "Enter title"
+    title ==''? this.openPopup(text):console.log("ok")
+  }
 
   postIt = () => {
     //console.log("state", this.state);
@@ -55,12 +78,14 @@ class AddNew extends React.Component {
       .then((res) => {
         return res.json();
       })
-      .then((data) => console.log("post req: ", data));
+      .then((data) => console.log("post req: ", data))
+      .then(()=>this.props.reload())
   };
 
   render() {
     return (
       <div className = 'addNewContainer'>
+        {this.state.popupVisible ? <Popup visible = {this.closePopup} text = {this.state.popupText}/> :null}
         <form onSubmit={this.submitHandler}>
           
           <input className = 'titleInput' type="text" name="title" placeholder = 'Title' onChange={this.changeHandler} />

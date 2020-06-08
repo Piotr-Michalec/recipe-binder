@@ -1,20 +1,54 @@
 import React from 'react';
+import {useEffect,useState} from 'react';
 //import MyForm from './components/test';
 import MainComp from './components/MainComp';
 import List from './components/List';
-import AddNew from './components/AddNew'
-
+import AddNew from './components/AddNew';
+import Popup from './components/Popup';
 
 import './App.css';
 
 function App() {
+
+
+
+
+
+
+useEffect(()=>{
+  callAPI();
+  console.log('useeff2')
+},[]) 
+
+
+const[items, setState]=useState(["test state"])
+
+const api = `http://localhost:8080/posts`;
+
+const createItems = props =>{
+setState(JSON.parse(props))
+}
+console.log(items)
+
+
+const callAPI= () =>{
+  fetch(api)
+      .then(res => res.text())
+      .then(res => createItems(res))  
+             
+}
+
+
+
+//////////////////////
+
   return (
     <main>
        <div id="main-view"> 
         <div>
-          <AddNew />
+          <AddNew reload = {callAPI}/>
         </div>
-            <List/>
+            <List items = {items} reload = {callAPI}/>
         </div>
     </main>
   );

@@ -6,16 +6,16 @@ const api = `http://localhost:8080/posts`;
 const Item = props =>{
 const id = props.id;
 let url = props.link;
-
 const deleteEntry = () =>{
-   // console.log('to id usun ',id)
-    fetch(`${api}/${id}`,
-   { method: 'DELETE'
-}).then(res=>res.json());
-//here props.call api from list component
-console.log('usunieto')
-props.reload()
-}
+    // console.log('to id usun ',id)
+     fetch(`${api}/${id}`,
+    { method: 'DELETE'
+  }).then(res=>res.json())
+  //here props.call api from list component
+  //console.log('usunieto')
+  .then(()=>props.reload())
+  }
+
 
 const openLink = () =>{
     if (!url.match(/^https?:\/\//i)) { //append protocol if link doesnt have one
