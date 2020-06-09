@@ -1,0 +1,33 @@
+.popup{
+    position: absolute;
+    left: 50%;
+    top:10%;
+    transform: translate(-50%);
+    background-color:rgba(20, 135, 48, 0.9) ;
+    padding: 5%;
+    color: cornsilk;
+    border: 2px solid rgba(9, 61, 22, 0.6); 
+    z-index: 2;
+}
+
+.popup>button{
+    background-color: green;
+    margin: 0;
+    position: absolute;
+    width: 80%;
+    height:20%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    border: 1px red solid;
+    border-radius: 10px;
+    color:cornsilk;
+    
+}
+
+.popup>button:hover{
+    background-color: white;
+    color: green;
+    text-decoration-color: indigo;
+    cursor: pointer;
+}

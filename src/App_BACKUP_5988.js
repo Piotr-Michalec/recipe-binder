@@ -9,6 +9,12 @@ import Popup from './components/Popup';
 import './App.css';
 
 function App() {
+<<<<<<< HEAD
+  const listReloadHandler = () =>{
+console.log('reload');
+
+  }
+=======
 
 
 
@@ -42,13 +48,20 @@ const callAPI= () =>{
 
 //////////////////////
 
+>>>>>>> sec
   return (
     <main>
        <div id="main-view"> 
         <div>
+<<<<<<< HEAD
+          <AddNew reload = {listReloadHandler}/>
+        </div>
+            <List reload = {listReloadHandler}/>
+=======
           <AddNew reload = {callAPI}/>
         </div>
             <List items = {items} reload = {callAPI}/>
+>>>>>>> sec
         </div>
     </main>
   );
