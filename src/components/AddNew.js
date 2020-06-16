@@ -2,6 +2,8 @@ import React from "react";
 import  "./../componentCss/addNew.css"
 import Popup from './../components/Popup';
 
+const api ='https://stormy-escarpment-31979.herokuapp.com'
+
 class AddNew extends React.Component {
   constructor(props) {
     super(props);
@@ -30,7 +32,7 @@ class AddNew extends React.Component {
  }
 
   submitHandler = (event) => {
-    const text = "This not a valid link"
+    const text = "This is not a valid link"
     event.preventDefault();
     this.validateTitle();
    ( this.validateUrl()? this.postIt(): this.openPopup(text))
@@ -62,10 +64,7 @@ class AddNew extends React.Component {
   }
 
   postIt = () => {
-    //console.log("state", this.state);
-
-    // send userInput to server
-    fetch("http://localhost:8080/posts", {
+    fetch(`${api}/posts`, {
       method: "POST",
       headers: {
         "Content-type": "application/json",

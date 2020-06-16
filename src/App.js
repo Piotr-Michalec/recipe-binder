@@ -10,11 +10,6 @@ import './App.css';
 
 function App() {
 
-
-
-
-
-
 useEffect(()=>{
   callAPI();
   console.log('useeff2')
@@ -23,7 +18,7 @@ useEffect(()=>{
 
 const[items, setState]=useState(["test state"])
 
-const api = `http://localhost:8080/posts`;
+const api = `https://stormy-escarpment-31979.herokuapp.com/posts`;
 
 const createItems = props =>{
 setState(JSON.parse(props))

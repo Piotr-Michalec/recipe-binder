@@ -1,13 +1,13 @@
 import React from 'react';
 import './../componentCss/item.css';
 
-const api = `http://localhost:8080/posts`;
+const api = `https://stormy-escarpment-31979.herokuapp.com/posts`;
 
 const Item = props =>{
 const id = props.id;
 let url = props.link;
 const deleteEntry = () =>{
-    // console.log('to id usun ',id)
+   
      fetch(`${api}/${id}`,
     { method: 'DELETE'
   }).then(res=>res.json())
