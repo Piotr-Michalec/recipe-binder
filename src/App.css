@@ -1,60 +1,33 @@
+main {
+  height: 97vh;
+  overflow: hidden;
+  background-image: url(../src/media/board-bunch-cooking-food-349609.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 
-
-
-  
-  main{
-    height:97vh;
-    overflow:hidden;
-    background-image: url(../src/media/board-bunch-cooking-food-349609.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
+#main-view {
+  position: relative;
+  margin: 0% 30vw 0% 30vw;
+  padding: 1px 0px 0px 0px;
+  overflow: hidden;
+  top: 0;
+  border-left: 2px solid rgba(20, 135, 48, 0.6);
+  border-right: 2px solid rgba(20, 135, 48, 0.6);
+  background-color: rgba(20, 135, 48, 0.23);
+  width: auto;
+}
+@media (max-width: 1024px) {
+  #main-view {
+    margin: 0% 15vw 0% 15vw;
   }
-  
-  
-  #main-view{
-    position: relative;
-    margin: 0% 30vw 0% 30vw;
-    padding: 1px 0px 0px 0px;
-    overflow: hidden;
-    top:0;
-    border-left: 2px solid rgba(20, 135, 48, 0.6);
-    border-right: 2px solid rgba(20, 135, 48, 0.6); 
-    background-color:rgba(20, 135, 48, 0.23) ;
+}
+
+@media only screen and (max-width: 769px) {
+  #main-view {
+    margin: 0;
     width: auto;
+  }
+}
 
-  }
-  @media  (max-width: 1024px){
-    #main-view{
-      margin: 0% 15vw 0% 15vw;
-      
-    }
-  }
-
-  @media only screen and (max-width: 769px){
-    #main-view{
-      margin: 0;
-      width: auto; 
-    }
-  }
-
- 
-  
-  /* 
- 
-  @media  (max-width: 600px){
-    #main-view{
-      margin: 0;
-      width: auto; 
-    }
-  }
-  @media  (max-width: 600px){
-    #main-view{
-      margin: 0;
-      width: auto; 
-    }
-  } */
-  
-  
-  
-  
 

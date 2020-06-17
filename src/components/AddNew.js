@@ -1,8 +1,8 @@
 import React from "react";
-import  "./../componentCss/addNew.css"
-import Popup from './../components/Popup';
+import "./../componentCss/addNew.css";
+import Popup from "./../components/Popup";
 
-const api ='https://stormy-escarpment-31979.herokuapp.com'
+const api = "https://stormy-escarpment-31979.herokuapp.com";
 
 class AddNew extends React.Component {
   constructor(props) {
@@ -11,31 +11,29 @@ class AddNew extends React.Component {
       title: "",
       link: "",
       popupVisible: false,
-      popupText: "test"
-
+      popupText: "test",
     };
- 
   }
 
+  openPopup = (props) => {
+    this.setState({ popupText: props }, () => {
+      console.log("callback", this.state.popupText);
+    });
+    this.setState({ popupVisible: true });
+    console.log("popup state", this.state.popupText);
+    console.log("open", props);
+  };
 
- openPopup = (props) =>{
-  this.setState({popupText:props},()=>{console.log("callback",this.state.popupText)})
-   this.setState({popupVisible: true});
-    console.log('popup state',this.state.popupText);
-    console.log("open",props)
-   
-}
-
- closePopup = () =>{
-   this.setState({popupVisible: false});
-   this.setState({popupText: ""})
- }
+  closePopup = () => {
+    this.setState({ popupVisible: false });
+    this.setState({ popupText: "" });
+  };
 
   submitHandler = (event) => {
-    const text = "This is not a valid link"
+    const text = "This is not a valid link";
     event.preventDefault();
     this.validateTitle();
-   ( this.validateUrl()? this.postIt(): this.openPopup(text))
+    this.validateUrl() ? this.postIt() : this.openPopup(text);
   };
 
   changeHandler = (event) => {
@@ -43,7 +41,6 @@ class AddNew extends React.Component {
     let val = event.target.value;
     this.setState({ [nam]: val });
   };
-
 
   validateUrl = () => {
     let url = this.state.link;
@@ -57,11 +54,11 @@ class AddNew extends React.Component {
     return valid;
   };
 
-  validateTitle = () =>{
+  validateTitle = () => {
     let title = this.state.title;
-    const text = "Enter title"
-    title ==''? this.openPopup(text):console.log("ok")
-  }
+    const text = "Enter title";
+    title == "" ? this.openPopup(text) : console.log("ok");
+  };
 
   postIt = () => {
     fetch(`${api}/posts`, {
@@ -78,20 +75,33 @@ class AddNew extends React.Component {
         return res.json();
       })
       .then((data) => console.log("post req: ", data))
-      .then(()=>this.props.reload())
+      .then(() => this.props.reload());
   };
 
   render() {
     return (
-      <div className = 'addNewContainer'>
-        {this.state.popupVisible ? <Popup visible = {this.closePopup} text = {this.state.popupText}/> :null}
+      <div className="addNewContainer">
+        {this.state.popupVisible ? (
+          <Popup visible={this.closePopup} text={this.state.popupText} />
+        ) : null}
         <form onSubmit={this.submitHandler}>
-          
-          <input className = 'titleInput' type="text" name="title" placeholder = 'Title' onChange={this.changeHandler} />
+          <input
+            className="titleInput"
+            type="text"
+            name="title"
+            placeholder="Title"
+            onChange={this.changeHandler}
+          />
           <br />
-          
-          <input className='linkInput' type="text" name="link" placeholder = 'Paste link here' onChange={this.changeHandler} />
-          <input className ='submit' type="submit" value="Add New Recipe"/>
+
+          <input
+            className="linkInput"
+            type="text"
+            name="link"
+            placeholder="Paste link here"
+            onChange={this.changeHandler}
+          />
+          <input className="submit" type="submit" value="Add New Recipe" />
         </form>
       </div>
     );

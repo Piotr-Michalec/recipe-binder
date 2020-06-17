@@ -1,87 +1,67 @@
 
-@font-face{
-    font-family: 'Lato';
-    src: local('Lato'),url(../fonts/Lato/Lato-Regular.ttf) format('woff');
+@font-face {
+    font-family: "Lato";
+    src: local("Lato"), url(../fonts/Lato/Lato-Regular.ttf) format("woff");
   }
-
- 
-li {
+  
+  li {
     font-size: large;
     text-indent: 7px;
-}
-
-
-
-div{
+  }
+  
+  div {
     border-radius: 10px;
-    font-family: 'Lato';
-    
-}
-
-#title {grid-area: title;}
-#link {grid-area: link;}
-#date {grid-area: date;}
-#deleteButton {grid-area: deleteButton;}
- 
-
-.gridContainer {
-   
-
-   
+    font-family: "Lato";
+  }
+  
+  #title {
+    grid-area: title;
+  }
+  #link {
+    grid-area: link;
+  }
+  #date {
+    grid-area: date;
+  }
+  #deleteButton {
+    grid-area: deleteButton;
+  }
+  
+  .gridContainer {
     display: grid;
     grid-template-areas:
-    
-    'title title title title '
-    ' link link link link'
-    'date date deleteButton deleteButton '
-    
+      "title title title title "
+      " link link link link"
+      "date date deleteButton deleteButton ";
+  }
   
-    ;  
-  /*  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-   grid-template-rows: repeat(6, 200px);
-   grid-gap: 1rem;
-   grid-auto-flow: dense; */
-}
-
-
-.gridContainer>div{
+  .gridContainer > div {
     position: relative;
-    margin:1px;
-    background-color:rgba(247, 220, 192, 0.6);
+    margin: 2px;
+    background-color: rgba(247, 220, 192, 0.6);
     box-sizing: border-box;
     cursor: pointer;
     overflow: hidden;
-   
-   
-}
-
-div.p{
-    word-wrap: break-word;
-    white-space: pre-wrap
-}
-
-.gridContainer>div:hover{
+    border: 1px solid green;
+  }
   
-    background-color:rgba(247, 220, 192, 0.8);
+  div.p {
+    word-wrap: break-word;
+    white-space: pre-wrap;
+    padding: 2px;
+  }
+  
+  .gridContainer > div:hover {
+    background-color: rgba(247, 220, 192, 0.8);
     border: 1px solid green;
     box-sizing: border-box;
-   
-}
-
-/* #title{
-    text-align: center;
-    font-weight: bold
-    
-} */
-
-#deleteButton {
-    text-align: center;
+  }
   
-}
-
-#deleteButton:hover{
+  #deleteButton {
+    text-align: center;
+  }
+  
+  #deleteButton:hover {
     background-color: rgba(217, 76, 76, 0.5);
-}
-
-
-
+  }
+  
